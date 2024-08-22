@@ -13,7 +13,7 @@ export interface Character {
 })
 
 export class HighscoresService {
-  private apiUrl = 'http://back-slaynrookers.onrender.com/api/highscores';
+  private apiUrl = 'https://back-slaynrookers.onrender.com/api/highscores';
 
     constructor(private http: HttpClient) {}
 
