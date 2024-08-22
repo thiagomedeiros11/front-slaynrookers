@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Highscores</h1>
+  <ul>
+    <li *ngFor="let character of highscores">
+      <p>Name: {{ character.name }}</p>
+      <p>Level: {{ character.level }}</p>
+      <p>Experience: {{ character.points }}</p>
+    </li>
+  </ul>
+</div>
