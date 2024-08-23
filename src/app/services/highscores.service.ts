@@ -18,6 +18,8 @@ export class HighscoresService {
     constructor(private http: HttpClient) {}
 
     getHighscores(): Observable<Character[]> {
-      return this.http.get<Character[]>(this.apiUrl);
+      return this.http.get<Character[]>(`${this.apiUrl}?t=${new Date().getTime()}`, {
+        headers: {'Cache-Control': 'no-cache', 'Pragma': 'no-cache' }
+      });
     }
 }
