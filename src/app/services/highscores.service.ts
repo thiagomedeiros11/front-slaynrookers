@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environment/environment';
 
 export interface Character {
   name: string;
@@ -13,7 +14,7 @@ export interface Character {
 })
 
 export class HighscoresService {
-  private apiUrl = 'https://back-slaynrookers.onrender.com/api/highscores';
+  private apiUrl = environment.apiUrl;
 
     constructor(private http: HttpClient) {}
 
