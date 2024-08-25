@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { HighscoresService, Character } from './services/highscores.service';
-import { MatCardModule } from '@angular/material/card';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,8 @@ import { MatCardModule } from '@angular/material/card';
   imports: [
     CommonModule,
     HttpClientModule,
-    MatCardModule
+    MatTabsModule,
+    MatToolbarModule
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
