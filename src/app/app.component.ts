@@ -25,9 +25,16 @@ export class AppComponent implements OnInit {
   constructor(private highscoresService: HighscoresService) {}
 
   ngOnInit() {
+
+    const storedHighscores = localStorage.getItem('highscores');
+    if (storedHighscores) {
+      this.highscores = JSON.parse(storedHighscores);
+    }
+
     this.highscoresService.getHighscores().subscribe(
       (data: Character[]) => {
         this.highscores = data;
+        localStorage.setItem('highscores', JSON.stringify(data));
       },
       (error) => {
         console.error('Error fetching data:', error);
