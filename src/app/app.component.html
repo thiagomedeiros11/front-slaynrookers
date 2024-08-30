@@ -1,49 +1,65 @@
-<div style="padding: 0.4rem; display: flex; flex-direction: column; min-height: 100vh;">
+<div class="page-container">
+    <div class="header-title">
+        <h1>SlaynRookers</h1>
+    </div>
 
-    <div style="flex: 1;">
-      <h1>SlaynRookers</h1>
-
-      <mat-tab-group>
+    <mat-tab-group>
         <mat-tab label="News">
-          <div>
-            <p>23-05-2024</p>
-            <p>Welcome to SlaynRookers, the premier channel for Rookgaard residents in Slaynville who want to stay up to date and be part of a community.</p>
-          </div>
+            <div class="news-container">
+                <div class="news-item">
+                    <p class="news-date">29-08-2024</p>
+                    <p class="news-content">It is part of our roadmap to add: Articles (for validated writers), Screenshot of the week, poll, short news, ask a question and much more.</p>
+                </div>
+                <div class="news-item">
+                    <p class="news-date">23-05-2024</p>
+                    <p class="news-content">Welcome to SlaynRookers, the premier channel for Rookgaard residents in Slaynville who want to stay up to date and be part of a community.</p>
+                </div>
+            </div>
+            <div class="residents-counter">
+              <p>Rookgaard Residents</p>
+              <p>{{ highscores.length }}</p>
+            </div>
         </mat-tab>
 
         <mat-tab label="Highscores">
-          <div>
-            <h1>Highscores</h1>
-            <ul>
-              <li *ngFor="let character of highscores">
-                <p>Name: {{ character.name }}</p>
-                <p>Level: {{ character.level }}</p>
-                <p>Experience: {{ character.points }}</p><br>
-              </li>
-            </ul>
-          </div>
+            <div class="highscores-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Name</th>
+                            <th>Level</th>
+                            <th>Experience</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let character of highscores; let i = index">
+                            <td>{{ i + 1 }}.</td>
+                            <td>{{ character.name }}</td>
+                            <td>{{ character.level }}</td>
+                            <td>{{ character.points }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </mat-tab>
 
         <mat-tab label="FAQs">
-          <div>
-            <h2>1. What is SlaynRookers?</h2>
-              <p>Is an open source project (you can also contribute) with the aim of creating a community for the residents of Rookgaard in Slaynville.</p>
-            <h2>2. Why contribute?</h2>
-              <p>We believe that a portal to integrate all rookgaard residents would be of great value. We see several possibilities for an open place to share adventures, make exchanges, stay up to date with news and much more.
-
-If you are a technology enthusiast, it would be an excellent experience to be part of a real open source project and deal with the challenges of a project in production.</p>
-            <h2>3. How can I contribute?</h2>
-              <p>At the moment all types of contributions are welcome.
-
-We need creative minds to help us design the future of SlaynRookers, we would like to add a lot of information beyond Highscores.
-
-We need developers (back end and front end) ranging from simple tasks, such as design improvements, to more complex tasks. Any kind-hearted developer is welcome :) experienced or not.</p>
-          </div>
+            <div class="faq-container">
+                <h2>1. What is SlaynRookers?</h2>
+                <p>Is an open source project (you can also contribute) with the aim of creating a community for the residents of Rookgaard in Slaynville.</p>
+                <h2>2. Why contribute?</h2>
+                <p>We believe that a portal to integrate all rookgaard residents would be of great value. We see several possibilities for an open place to share adventures, make exchanges, stay up to date with news and much more.</p>
+                <h2>3. How can I contribute?</h2>
+                <p>At the moment all types of contributions are welcome.</p>
+            </div>
         </mat-tab>
-      </mat-tab-group>
-    </div>
+    </mat-tab-group>
+
+
 
     <mat-toolbar color="primary">
-      <p>©2024 SlaynRookers</p>
+        <p>©2024 SlaynRookers</p>
     </mat-toolbar>
 </div>
+

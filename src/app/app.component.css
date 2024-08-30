@@ -1,0 +1,104 @@
+.page-container {
+    background-color: #f4efe6; /* Cor de fundo creme suave */
+    min-height: 100vh; /* Garante que o fundo cubra toda a altura da página */
+    padding: 1rem; /* Espaçamento interno */
+    box-sizing: border-box; /* Inclui padding e bordas na altura e largura */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.header-title {
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace; /* Estilo de máquina de escrever */
+    color: #8b4513;
+}
+
+.mat-tab-group {
+    background-color: transparent; /* Remove o fundo padrão do mat-tab */
+}
+
+.mat-tab-label {
+    color: #8b4513; /* Cor das labels das tabs */
+}
+
+.mat-tab-body-wrapper {
+    background-color: #f4efe6; /* Fundo da área das tabs */
+}
+
+.mat-toolbar {
+    background-color: #8b4513; /* Cor do rodapé */
+    color: white; /* Cor do texto do rodapé */
+}
+
+.news-container, .faq-container, .highscores-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 1rem;
+    background-color: #fdf5e6; /* Fundo vintage */
+    border: 2px solid #8b4513; /* Borda marrom */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para os elementos individuais */
+.news-item {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed #8b4513;
+}
+
+.faq-container h2 {
+    color: #8b4513;
+    font-size: 1.4rem;
+    border-bottom: 1px dashed #8b4513;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.faq-container p {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: justify;
+    margin-bottom: 1rem;
+}
+
+/* Estilos do Residents Counter */
+.residents-counter {
+    width: 15%;
+    padding: 0.5rem;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 1rem auto 0; /* Margem para garantir que fique acima do rodapé */
+}
+
+/* Estilos da Tabela Highscores */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #8b4513;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f4f4f4;
+    color: #8b4513;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+

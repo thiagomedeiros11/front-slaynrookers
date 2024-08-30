@@ -16,11 +16,11 @@ export interface Character {
 export class HighscoresService {
   private apiUrl = environment.apiUrl;
 
-    constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-    getHighscores(): Observable<Character[]> {
-      return this.http.get<Character[]>(`${this.apiUrl}?t=${new Date().getTime()}`, {
-        headers: {'Cache-Control': 'no-cache', 'Pragma': 'no-cache' }
-      });
-    }
+  getHighscores(): Observable<Character[]> {
+    return this.http.get<Character[]>(`${this.apiUrl}?t=${new Date().getTime()}`, {
+      headers: { 'Cache-Control': 'no-cache', 'Pragma': 'no-cache' }
+    });
+  }
 }

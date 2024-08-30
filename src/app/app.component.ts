@@ -1,5 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { HighscoresService, Character } from './services/highscores.service';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -21,24 +22,32 @@ import { Subscription } from 'rxjs';
 
 export class AppComponent implements OnInit, OnDestroy {
 
-  highscores: Character[] =[];
+  highscores: Character[] = [];
   private interevalId: any;
   private subscription: Subscription = new Subscription();
+  private isBrowser: boolean;
 
-  constructor(private highscoresService: HighscoresService) {}
+  constructor(
+    private highscoresService: HighscoresService,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
+  }
 
   ngOnInit() {
-    const storedHighscores = localStorage.getItem('highscores');
+    if (this.isBrowser) {
+      const storedHighscores = localStorage.getItem('highscores');
 
-    if (storedHighscores) {
-      this.highscores = JSON.parse(storedHighscores);
-    }
+      if (storedHighscores) {
+        this.highscores = JSON.parse(storedHighscores);
+      }
 
-    this.fetchHighscores();
-
-    this.interevalId = setInterval(() => {
       this.fetchHighscores();
-    }, 50000);
+
+      this.interevalId = setInterval(() => {
+        this.fetchHighscores();
+      }, 50000);
+    }
   }
 
   fetchHighscores() {
@@ -57,9 +66,9 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-      if (this.interevalId) {
-        clearInterval(this.interevalId);
-      }
-      this.subscription.unsubscribe();
+    if (this.interevalId) {
+      clearInterval(this.interevalId);
+    }
+    this.subscription.unsubscribe();
   }
 }
