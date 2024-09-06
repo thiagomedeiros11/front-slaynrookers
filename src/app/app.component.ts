@@ -36,21 +36,24 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     if (this.isBrowser) {
-      const storedHighscores = localStorage.getItem('highscores');
-
-      if (storedHighscores) {
-        this.highscores = JSON.parse(storedHighscores);
-      }
-
-      this.fetchHighscores();
-
-      this.interevalId = setInterval(() => {
-        this.fetchHighscores();
-      }, 50000);
+      this.loadHighscores();
+      this.startPolling();
     }
   }
 
-  fetchHighscores() {
+  private loadHighscores() {
+    const storedHighscores = localStorage.getItem('highscores');
+    if (storedHighscores) {
+      this.highscores = JSON.parse(storedHighscores);
+    }
+    this.fetchHighscores();
+  }
+
+  private startPolling() {
+    this.interevalId = setInterval(() => this.fetchHighscores(), 50000);
+  }
+
+  private fetchHighscores() {
     const subscription = this.highscoresService.getHighscores().subscribe(
       (data: Character[]) => {
         this.highscores = data;
